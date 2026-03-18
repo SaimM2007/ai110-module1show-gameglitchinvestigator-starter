@@ -25,14 +25,24 @@ It wrote the code, ran away, and now the game is unplayable.
 
 ## 📝 Document Your Experience
 
-- [ ] Describe the game's purpose.
-- [ ] Detail which bugs you found.
-- [ ] Explain what fixes you applied.
+- The game's purpose:
+   1. This is a number guessing game where the player tries to guess a secret number within a limited number of attempts, with hints after each guess. 
+   2. The purpose of this project is to practice identifying and fixing bugs in AI-generated code, using tools like Copilot to refactor logic, write tests, and verify fixes.
+
+- Bugs found:
+   1. Hint messages were flipped: guessing too high said "Go HIGHER" and guessing too low said "Go LOWER"
+   2. New game button never reset the game status or history, so after losing the game would immediately show "Game over" again
+   3. All core logic functions were mixed into app.py instead of being separated into logic_utils.py
+
+- Fixes applied:
+   1. Swapped the hint messages in check_guess so "Too High" says "Go LOWER" and "Too Low" says "Go HIGHER"
+   2. Added status and history reset to the new game block in app.py
+   3. Refactored get_range_for_difficulty, parse_guess, check_guess, and update_score into logic_utils.py
 
 ## 📸 Demo
 
-- [ ] [Insert a screenshot of your fixed, winning game here]
+- ![Winning game screenshot](image.png)
 
 ## 🚀 Stretch Features
 
-- [ ] [If you choose to complete Challenge 4, insert a screenshot of your Enhanced Game UI here]
+- Challenge 3: Professional Documentation and Linting - Added professional-grade docstrings to all functions in 'logic_utils.py' and verified PEP 8 compliance.

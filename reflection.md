@@ -30,12 +30,14 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 - Did AI help you design or understand any tests? How?
 
   I decided a bug was fixed when it passed both a pytest test and worked correctly in the live app. For the hints bug I ran pytest and all three tests passed, confirming that guessing too high returns "Too High" with "LOWER" in the message and guessing too low returns "Too Low" with "HIGHER" in the message. For the new game bug I manually tested it in the browser by losing a game and clicking New Game, verifying that it let me play again instead of showing "Game over" immediately. Copilot helped me generate the pytest cases by suggesting the structure of unpacking the tuple return value from check_guess and asserting on both the outcome and the message.
-  
+
 ---
 
 ## 4. What did you learn about Streamlit and state?
 
 - How would you explain Streamlit "reruns" and session state to a friend who has never used Streamlit?
+
+  Every time you interact with a Streamlit app, like clicking a button or typing in a box, the entire script reruns from top to bottom. This means any regular variable you set just gets reset to its original value, so Streamlit gives you session_state to store data that needs to survive across those reruns. It's like the app has amnesia after every click unless you explicitly save something to session_state.
 
 ---
 
@@ -45,3 +47,5 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
   - This could be a testing habit, a prompting strategy, or a way you used Git.
 - What is one thing you would do differently next time you work with AI on a coding task?
 - In one or two sentences, describe how this project changed the way you think about AI generated code.
+
+  One habit I want to keep is writing pytest cases right after fixing a bug to confirm the fix actually works instead of just eyeballing it in the UI. Next time I work with AI on a coding task I would use context variables like #file:app.py and #codebase from the start so the AI has full visibility into the codebase instead of giving suggestions based on incomplete context. This project made me realize AI generated code can look completely fine on the surface but have subtle logic bugs baked in that you only catch by actually running and testing it.
